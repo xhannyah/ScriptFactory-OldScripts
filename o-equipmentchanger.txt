@@ -1,0 +1,13 @@
+<String>ChestSlot:Chest
+<String>CapeSlot:Cape
+<String>HeadSlot:Hat
+<String>ShieldSlot:Shield
+<String>AmuletSlot:Amulet
+<String>BootsSlot:Boots
+<String>RingSlot:Ring
+<String>WeaponSlot:Weapon
+<String>AmmoSlot:Ammo
+<String>GlovesSlot:Gloves
+<String>LegsSlot:Legs
+[1, Debug, comment, 1:Start]
+[2, Debug, comment, 1:Set Strings]

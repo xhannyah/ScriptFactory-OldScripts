@@ -1,0 +1,18 @@
+<String>Select Quest:One Small Favour/*/Shilo Village/*/Tower of Life
+<Integer>QuestSelector:0
+<Boolean>SelectQuest:true
+[1, Variables, getBoolean, 1:SelectQuest, 3:true]
+[1, Variables, editString, 1:Select Quest, 1:One Small Favour/*/Shilo Village/*/Tower of Life]
+[1, Variables, editBoolean, 1:SelectQuest, 3:false]
+[2, Variables, getString, 1:Select Quest, 1:Tower of Life]
+[2, Variables, operationInteger, 1:QuestSelector, 1:Set as, 2:1]
+[3, Variables, getInteger, 1:QuestSelector, 1:==, 2:1]
+[3, Variables, switchScript, 1:Private Scripts\toweroflife.txt, 3:false, 3:false]
+[4, Variables, getString, 1:Select Quest, 1:Shilo Village]
+[4, Variables, operationInteger, 1:QuestSelector, 1:Set as, 2:2]
+[5, Variables, getInteger, 1:QuestSelector, 1:==, 2:2]
+[5, Variables, switchScript, 1:Private Scripts\shilovillage.txt, 3:false, 3:false]
+[6, Variables, getString, 1:Select Quest, 1:One Small Favour]
+[6, Variables, operationInteger, 1:QuestSelector, 1:Set as, 2:3]
+[7, Variables, getInteger, 1:QuestSelector, 1:==, 2:3]
+[7, Variables, switchScript, 1:Private Scripts\onesmallfavour.txt, 3:false, 3:false]

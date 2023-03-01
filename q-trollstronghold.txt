@@ -1,0 +1,7 @@
+<Boolean>FirstBank:true
+[0, Debug, comment, 1:Start]
+[1, Debug, comment, 1:Walk to Bank]
+[2, Variables, getBoolean, 1:FirstBank, 3:true]
+[2, Bank, isAtClosestBank, {false}]
+[2, WalkTo, walkToClosestBank]
+[3, Debug, comment, 1:End]

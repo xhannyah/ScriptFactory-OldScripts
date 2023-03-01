@@ -1,0 +1,2 @@
+[1, RS2Widget, isVisibleContainingText, {true}, 1:Continue, 3:false]
+[1, Dialogues, clickContinue]

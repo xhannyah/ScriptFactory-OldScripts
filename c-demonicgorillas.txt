@@ -1,0 +1,166 @@
+<Script>xhannyah:ATOM Demonic Gorillas:0.1
+<Description>Kills Demonic Gorillas with automatic restocking.
+<Cycle>150,500,100,300
+<Integer>Boulder:0
+<Boolean>ProtectFromMelee:false
+<Boolean>Boulder:false
+<Boolean>Banking:false
+<Boolean>InFight:false
+<Boolean>EliteVoid:false
+<Boolean>RangedPhase:false
+<Boolean>MagePhase:false
+<Boolean>RegularVoid:false
+<Boolean>ProtectFromMissiles:false
+<Boolean>NeedToEat:false
+<Boolean>MeleePhase:false
+<Boolean>UnknownPhase:false
+<Position>ResetBoulder:2121,5659,0
+<Position>OutsideOfCavern:2027,5610,0
+<Position>GrandTreeOpening:2435,3517,0
+<Position>BankGrandTree:2449,3482,1
+<Position>VirtualTreeOpening:1987,5570,0
+<Position>FightzoneDemonicGorillas:2110,5651,0
+<Position>CavernRope:2128,5647,0
+<Area>GrandTree:2380,3519,2505,3390,0
+<Area>ResetBoulder:2120,5660,2122,5659,0
+<Area>OutsideOfCavern:2026,5611,2028,5609,0
+<Area>GrandTreeOpening:2433,3519,2437,3515,0
+<Area>BankGrandTree:2448,3483,2450,3481,1
+<Area>VirtualTreeOpening:1985,5572,1989,5568,0
+<Area>InsideCavern:2066,5692,2164,5635,0
+<Area>FightzoneDemonicGorillas:2119,5666,2091,5638,0
+<Area>VirtualGrandTree:1984,5568,2039,5624,0
+<Area>CavernRope:2127,5648,2131,4645,0
+<Timer>InFight:3000,false,0,false
+[0, Debug, comment, 1:[Start]]
+[1, Debug, comment, 1:[Countdown]]
+[2, Debug, comment, 1:[Breaks]]
+[3, Debug, comment, 1:[Miscellaneous]]
+[4, Debug, comment, 1:[Script Logic]]
+[5, Debug, comment, 1:[Fight Logic]]
+[6, MyPlayer, areaContainsPlayer, {true}, 1:[FightzoneDemonicGorillas]]
+[6, MyPlayer, getAnimationID, {true}, 2:[1658]]
+[6, Variables, addOr]
+[6, MyPlayer, areaContainsPlayer, {true}, 1:[FightzoneDemonicGorillas]]
+[6, MyPlayer, getAnimationID, {true}, 2:[7552]]
+[6, Timers, reset, 1:[InFight]]
+[7, Variables, getBoolean, 1:InFight, 3:false]
+[7, Timers, isRunning, {true}, 1:InFight]
+[7, Variables, editBoolean, 1:InFight, 3:true]
+[8, Variables, getBoolean, 1:InFight, 3:true]
+[8, Timers, isRunning, {false}, 1:InFight]
+[8, Variables, editBoolean, 1:InFight, 3:false]
+[9, Variables, getBoolean, 1:UnknownPhase, 3:false]
+[9, NPC, isNPCFacingMyPlayer, {false}, 2:[7145]]
+[9, NPC, isNPCFacingMyPlayer, {false}, 2:[7146]]
+[9, NPC, isNPCFacingMyPlayer, {false}, 2:[7147]]
+[9, NPC, isNPCFacingMyPlayer, {false}, 2:[7148]]
+[9, Variables, editBoolean, 1:RangedPhase, 3:false]
+[9, Variables, editBoolean, 1:MagePhase, 3:false]
+[9, Variables, editBoolean, 1:MeleePhase, 3:false]
+[9, Variables, editBoolean, 1:UnknownPhase, 3:true]
+[10, Variables, getBoolean, 1:RangedPhase, 3:false]
+[10, MyPlayer, myPlayerIsInteracting, {true}]
+[10, NPC, getAnimationID, 1:Demonic gorilla, 2:7227, 1:==]
+[10, MyPlayer, isUnderAttack, {true}]
+[10, Variables, addOr]
+[10, Variables, getBoolean, 1:RangedPhase, 3:false]
+[10, MyPlayer, myPlayerIsInteracting, {true}]
+[10, Projectiles, isVisible, {true}, 2:[1302]]
+[10, Projectiles, isTargetingMyPlayer, {true}]
+[10, MyPlayer, isUnderAttack, {true}]
+[10, Variables, editBoolean, 1:RangedPhase, 3:true]
+[10, Variables, editBoolean, 1:MagePhase, 3:false]
+[10, Variables, editBoolean, 1:MeleePhase, 3:false]
+[10, Variables, editBoolean, 1:UnknownPhase, 3:false]
+[10, Variables, changeScriptState, 1:[Ranged Phase]]
+[11, Variables, getBoolean, 1:MagePhase, 3:false]
+[11, MyPlayer, myPlayerIsInteracting, {true}]
+[11, NPC, getAnimationID, 1:Demonic gorilla, 2:7225, 1:==]
+[11, MyPlayer, isUnderAttack, {true}]
+[11, Variables, addOr]
+[11, Variables, getBoolean, 1:MagePhase, 3:false]
+[11, MyPlayer, myPlayerIsInteracting, {true}]
+[11, Projectiles, isVisible, {true}, 2:[1304]]
+[11, Projectiles, isTargetingMyPlayer, {true}]
+[11, MyPlayer, isUnderAttack, {true}]
+[11, Variables, editBoolean, 1:RangedPhase, 3:false]
+[11, Variables, editBoolean, 1:MagePhase, 3:true]
+[11, Variables, editBoolean, 1:MeleePhase, 3:false]
+[11, Variables, editBoolean, 1:UnknownPhase, 3:false]
+[11, Variables, changeScriptState, 1:[Mage Phase]]
+[12, Variables, getBoolean, 1:MeleePhase, 3:false]
+[12, MyPlayer, myPlayerIsInteracting, {true}]
+[12, NPC, getAnimationID, 1:Demonic gorilla, 2:7226, 1:==]
+[12, MyPlayer, isUnderAttack, {true}]
+[12, Variables, editBoolean, 1:RangedPhase, 3:false]
+[12, Variables, editBoolean, 1:MagePhase, 3:false]
+[12, Variables, editBoolean, 1:MeleePhase, 3:true]
+[12, Variables, editBoolean, 1:UnknownPhase, 3:false]
+[12, Variables, changeScriptState, 1:[Melee Phase]]
+[13, MyPlayer, isUnderAttack, {true}]
+[13, NPC, getPrayerIcon, {true}, 1:Demonic gorilla, 1:PROTECT_FROM_MISSILES]
+[13, MyPlayer, myPlayerIsInteracting, {true}]
+[13, NPC, isNPCFacingMyPlayer, {true}, 1:Demonic gorilla]
+[13, Variables, editBoolean, 1:ProtectFromMissiles, 3:true]
+[13, Variables, editBoolean, 1:ProtectFromMelee, 3:false]
+[14, MyPlayer, isUnderAttack, {true}]
+[14, NPC, getPrayerIcon, {true}, 1:Demonic gorilla, 1:PROTECT_FROM_MELEE]
+[14, MyPlayer, myPlayerIsInteracting, {true}]
+[14, NPC, isNPCFacingMyPlayer, {true}, 1:Demonic gorilla]
+[14, Variables, editBoolean, 1:ProtectFromMissiles, 3:false]
+[14, Variables, editBoolean, 1:ProtectFromMelee, 3:true]
+[15, Variables, getBoolean, 1:Boulder, 3:false]
+[15, Projectiles, getDistance, 2:856, 1:==, 2:0, 3:false]
+[15, Variables, editBoolean, 1:Boulder, 3:true]
+[16, Variables, getBoolean, 1:Boulder, 3:true]
+[16, Projectiles, getDistance, 2:856, 1:>=, 2:1, 3:false]
+[16, Variables, editBoolean, 1:Boulder, 3:false]
+[17, Debug, comment, 1:[Banking Logic]]
+[18, Debug, comment, 1:[Fight - Boulder]]
+[19, Variables, getBoolean, 1:Boulder, 3:false]
+[19, Variables, getInteger, 1:Boulder, 1:!=, 2:0]
+[19, Variables, operationInteger, 1:Boulder, 1:Set as, 2:0]
+[20, Variables, getBoolean, 1:Boulder, 3:true]
+[20, Projectiles, getDistance, 2:856, 1:==, 2:0, 3:false]
+[20, Variables, getInteger, 1:Boulder, 1:==, 2:0]
+[20, WalkTo, walkDirectional, 2:2, 1:North, 3:false, 3:false, 3:false]
+[20, Variables, operationInteger, 1:Boulder, 1:Set as, 2:1]
+[21, Variables, getBoolean, 1:Boulder, 3:true]
+[21, Projectiles, getDistance, 2:856, 1:==, 2:0, 3:false]
+[21, Variables, getInteger, 1:Boulder, 1:==, 2:1]
+[21, WalkTo, walkDirectional, 2:2, 1:East, 3:false, 3:false, 3:false]
+[21, Variables, operationInteger, 1:Boulder, 1:Set as, 2:2]
+[22, Variables, getBoolean, 1:Boulder, 3:true]
+[22, Projectiles, getDistance, 2:856, 1:==, 2:0, 3:false]
+[22, Variables, getInteger, 1:Boulder, 1:==, 2:2]
+[22, Variables, operationInteger, 1:Boulder, 1:Set as, 2:3]
+[22, WalkTo, walkDirectional, 2:2, 1:South, 3:false, 3:false, 3:false]
+[23, Variables, getBoolean, 1:Boulder, 3:true]
+[23, Projectiles, getDistance, 2:856, 1:==, 2:0, 3:false]
+[23, Variables, getInteger, 1:Boulder, 1:==, 2:3]
+[23, Variables, operationInteger, 1:Boulder, 1:Set as, 2:0]
+[23, WalkTo, walkDirectional, 2:2, 1:West, 3:false, 3:false, 3:false]
+[24, Debug, comment, 1:[Fight - Eating]]
+[25, Debug, comment, 1:Fight - Prayer Switches]
+[26, Variables, getBoolean, 1:RangedPhase, 3:true]
+[26, Configs, getValue, 2:83, 1:!=, 2:8192]
+[26, Prayer, enablePrayer, 1:[PROTECT_FROM_MISSILES]]
+[27, Variables, getBoolean, 1:MagePhase, 3:true]
+[27, Configs, getValue, 2:83, 1:!=, 2:4096]
+[27, Prayer, enablePrayer, 1:[PROTECT_FROM_MAGIC]]
+[28, Variables, getBoolean, 1:MeleePhase, 3:true]
+[28, Configs, getValue, 2:83, 1:!=, 2:16384]
+[28, Prayer, enablePrayer, 1:[PROTECT_FROM_MELEE]]
+[29, Debug, comment, 1:[Fight - Gear Swaps]]
+[30, Variables, getBoolean, 1:ProtectFromMelee, 3:true]
+[30, Variables, getBoolean, 1:EliteVoid, 3:true]
+[30, Variables, getBoolean, 1:NeedToEat, 3:false]
+[30, Equipment, hasGearEquipped, {false}, 2:11664, 2:21000, 2:21902, 2:22109]
+[30, Inventory, gearSwap, 1:Void ranger helm, 1:Ava's assembler, 1:Dragon crossbow, 1:Twisted buckler]
+[31, Variables, getBoolean, 1:ProtectFromMissiles, 3:true]
+[31, Variables, getBoolean, 1:EliteVoid, 3:true]
+[31, Variables, getBoolean, 1:NeedToEat, 3:false]
+[31, Equipment, hasGearEquipped, {false}, 2:11665, 2:22322, 2:4151, 2:6570]
+[31, Inventory, gearSwap, 1:Void melee helm, 1:Fire cape, 1:Abyssal whip, 1:Avernic defender]
+[34, Debug, comment, 1:[End]]
